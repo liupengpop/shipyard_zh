@@ -173,22 +173,22 @@
                     </div>
                     <div class="column">
                         <div class="ui horizontal segment">
-                            <h5 class="ui dividing header">容器名</h5>
+                            <h5 class="ui dividing header">容器配置</h5>
                             <div class="field">
                                 <input name="containerName" class="input" type="text" ng-model="vm.containerName" placeholder="Container Name"></input> 
                             </div>
                             <h5 class="ui dividing header">资源限制</h5>
                             <div class="two fields">
                                 <div class="field">
-                                    <label>处理器</label>
+                                    <label>处理器限制</label>
                                     <input name="cpus" class="input" type="text" ng-model="vm.cpuShares" placeholder="1024"></input>
                                 </div>
                                 <div class="field">
-                                    <label>内存 (MB)</label>
+                                    <label>内存限制 (单位：MB)</label>
                                     <input name="memory" class="input" type="text" ng-model="vm.memory" placeholder="&infin;"></input>
                                 </div>
                             </div>
-                            <h5 class="ui dividing header">群体约束</h5>
+                            <h5 class="ui dividing header">集群约束</h5>
                             <div class="fields">
                                 <div class="five wide field">
                                     <label>约束</label>
@@ -247,20 +247,20 @@
                             <h5 class="ui dividing header">网络模式</h5>
                             <div class="field">
                                 <select class="ui fluid dropdown" default="0" ng-model="vm.request.HostConfig.NetworkMode">
-                                    <option value="bridge">网桥</option>
-                                    <option value="host">主机</option>
-                                    <option value="none">没有</option>
+                                    <option value="bridge">网桥模式</option>
+                                    <option value="host">主机模式</option>
+                                    <option value="none">缺省模式</option>
                                 </select>
                             </div>
                             <h5 class="ui dividing header">端口配置</h5>
                             <div class="field">
                                 <div class="ui toggle checkbox">
                                     <input type="checkbox" id="exposeAllPorts" ng-model="vm.request.HostConfig.PublishAllPorts">
-                                    <label for="exposeAllPorts">自动开启所有端口
+                                    <label for="exposeAllPorts">自动暴露所有对外端口
                                         <i class="blue help circle icon"></i>
                                         <div class="ui popup" style="width: 400px;">
-                                            <h5>放行所有端口</h5>
-                                            <p>如果操作者选择自动开启镜像的所有端口,那么Docker将使开启的端口在<b>主机上可访问</b> 并且端口将 <b>可以对任何客户端提供连接</b>.当使用该选项, Docker 将绑定开放的端口到主机上,端口号将随机抽取,范围在49153-65535之间 .</p>
+                                            <h5>暴露端口</h5>
+                                            <p> 如果选择自动暴露端口，Docker将所有配置的端口在<b>主机</b>上开放访问端口，并且端口将会被任何客户端通过主机所访问当使用此选项，Docker将绑定暴露主机端口（49153 and 65535区间）</p>
                                         </div>
                                     </label>
                                     <br/>
